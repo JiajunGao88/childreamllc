@@ -216,7 +216,8 @@ body {
   line-height: 1.7;
   font-weight: 400;
   font-size: 1rem;
-  background: #222; }
+  background-color: var(--warm-white);
+  color: var(--text-black); }
   body:before {
     position: absolute;
     content: "";
@@ -255,7 +256,8 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   font-family: "Oswald", sans-serif;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: var(--text-black); }
 
 .border-2 {
   border-width: 2px; }
@@ -290,8 +292,8 @@ h1, h2, h3, h4, h5,
 .form-control {
   height: 55px;
   border: none;
-  background: #333;
-  color: #fff;
+  background-color: var(--warm-white);
+  color: var(--text-black);
   font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
   .form-control:active, .form-control:focus {
     color: #fff;
@@ -322,25 +324,28 @@ h1, h2, h3, h4, h5,
 
 .site-footer {
   padding: 4em 0;
-  background: #333; }
+  background-color: var(--warm-bg);
+  color: var(--text-black); }
   @media (min-width: 768px) {
     .site-footer {
       padding: 8em 0; } }
   .site-footer .border-top {
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important; }
-  .site-footer p {
-    color: #fff; }
+  .site-footer p,
+  .site-footer address,
+  .site-footer .footer-heading + p {
+    color: var(--text-black) !important; }
   .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5 {
     color: #fff; }
   .site-footer a {
-    color: rgba(255, 255, 255, 0.5); }
+    color: var(--text-black); }
     .site-footer a:hover {
       color: white; }
   .site-footer ul li {
     margin-bottom: 10px; }
   .site-footer .footer-heading {
     font-size: 16px;
-    color: #fff; }
+    color: var(--text-black); }
 
 .bg-text-line {
   display: inline;
@@ -479,7 +484,8 @@ h1, h2, h3, h4, h5,
   z-index: 1999;
   position: relative;
   width: 100%;
-  padding: 1rem; }
+  padding: 1rem;
+  background-color: var(--warm-bg) !important; }
   @media (max-width: 991.98px) {
     .site-navbar {
       padding-top: 3rem;
@@ -515,7 +521,7 @@ h1, h2, h3, h4, h5,
         margin-left: 15px;
         margin-right: 15px;
         padding: 20px 0px;
-        color: #fff !important;
+        color: var(--text-black) !important;
         display: inline-block;
         text-decoration: none !important; }
         .site-navbar .site-navigation .site-menu > li > a:hover {
@@ -616,7 +622,7 @@ h1, h2, h3, h4, h5,
   right: 0;
   z-index: 2000;
   padding-top: 20px;
-  background: #fff;
+  background: var(--warm-bg) !important;
   height: calc(100vh);
   -webkit-transform: translateX(110%);
   -ms-transform: translateX(110%);
@@ -647,7 +653,8 @@ h1, h2, h3, h4, h5,
         cursor: pointer;
         -webkit-transition: .3s all ease;
         -o-transition: .3s all ease;
-        transition: .3s all ease; }
+        transition: .3s all ease;
+        color: var(--text-black) !important; }
         .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close span:hover {
           color: #ced4da; }
     .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo {
@@ -677,7 +684,7 @@ h1, h2, h3, h4, h5,
       padding: 10px 20px;
       display: block;
       position: relative;
-      color: #212529; }
+      color: var(--text-black) !important; }
       .site-mobile-menu .site-nav-wrap a:hover {
         color: #ff8b00; }
     .site-mobile-menu .site-nav-wrap li {
@@ -767,13 +774,13 @@ h1, h2, h3, h4, h5,
       .sticky-wrapper .site-navbar ul li a.active {
         color: #fff !important; }
   .sticky-wrapper.is-sticky .site-navbar {
-    background: #222;
+    background-color: var(--warm-bg) !important;
     -webkit-box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2); }
     .sticky-wrapper.is-sticky .site-navbar .site-logo a {
-      color: #ff8b00; }
+      color: inherit !important; }
     .sticky-wrapper.is-sticky .site-navbar ul li a {
-      color: #fff !important; }
+      color: var(--text-black) !important; }
       .sticky-wrapper.is-sticky .site-navbar ul li a.active {
         color: #ff8b00 !important; }
   .sticky-wrapper .shrink {
@@ -927,28 +934,26 @@ h1, h2, h3, h4, h5,
     display: block;
     line-height: 1; }
   .block-counter-1 .number {
-    color: #fff;
+    color: #e67e22 !important;
     font-size: 4rem;
     position: relative;
-    padding-bottom: 20px;
-    margin-bottom: 20px; }
+    padding-bottom: 30px;
+    margin-bottom: 30px; }
     @media (max-width: 991.98px) {
       .block-counter-1 .number {
         font-size: 2rem; } }
     .block-counter-1 .number:after {
-      position: absolute;
       content: "";
-      width: 50px;
-      height: 3px;
-      left: 50%;
+      position: absolute;
       bottom: 0;
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.3); }
+      width: 50px;
+      height: 2px;
+      background-color: #e0d5c5;
+      left: 50%;
+      transform: translateX(-50%); }
   .block-counter-1 .caption {
     font-size: 14px;
-    color: #fff;
+    color: var(--text-black) !important;
     letter-spacing: .05em; }
 
 .block-team-member-1 {
@@ -1222,22 +1227,13 @@ h1, h2, h3, h4, h5,
   padding: .5rem 0; }
 
 .block__35630 .icon {
-  position: relative; }
-  .block__35630 .icon:before {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #333;
-    z-index: -1; }
-  .block__35630 .icon > span {
-    font-size: 3rem;
-    color: #ff8b00; }
+  display: none;
+}
 
 .block__35630 h3 {
-  color: #000;
-  font-size: 1.4rem; }
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
 .footer-suscribe-form .form-control {
   color: #fff;
@@ -1263,15 +1259,46 @@ h1, h2, h3, h4, h5,
   border-color: #ff8b00; }
 
 .pricing {
-  background: #333;
-  padding: 30px; }
-  .pricing .price > span {
-    color: #cccccc; }
-    .pricing .price > span > span {
-      font-size: 3rem;
-      color: #ff8b00; }
-  .pricing ul li {
-    margin-bottom: 20px; }
+  background-color: var(--warm-bg);
+  padding: 30px;
+  transition: none;
+}
+
+.pricing h3 {
+  color: var(--text-black) !important;
+  margin-bottom: 1.5rem;
+}
+
+.pricing .price > span {
+  color: var(--text-black);
+}
+
+.pricing .price > span > span {
+  font-size: 3rem;
+  color: #e67e22;
+}
+
+.pricing ul li {
+  color: var(--text-black);
+  margin-bottom: 1rem;
+}
+
+.pricing .btn-primary {
+  background-color: #e67e22 !important;
+  border-color: #e67e22 !important;
+  color: white !important;
+  transition: none;
+}
+
+.pricing:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: var(--warm-bg);
+}
+
+.pricing ul.ul-check {
+  margin-bottom: 2rem;
+}
 
 /*PRELOADING------------ */
 #overlayer {
@@ -1338,4 +1365,262 @@ h1, h2, h3, h4, h5,
 }
 .content-gap {
   margin-bottom: 3rem;
+}
+
+/* Base colors */
+:root {
+    --warm-white: #ffffff;
+    --warm-bg: #fff8f0;    /* Light warm background */
+    --warm-darker: #fff0e0; /* Slightly darker warm background for contrast */
+    --text-black: #333333;  /* Soft black for better readability */
+}
+
+/* Main background alternating colors */
+body {
+    background-color: var(--warm-white);
+    color: var(--text-black);
+}
+
+.site-section:nth-child(even) {
+    background-color: var(--warm-bg);
+}
+
+/* Header background */
+.site-navbar {
+    background-color: var(--warm-bg) !important;
+}
+
+/* Footer background */
+.site-footer {
+    background-color: var(--warm-darker);
+    color: var(--text-black);
+}
+
+.site-footer a {
+    color: var(--text-black);
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-black);
+}
+
+p {
+    color: var(--text-black);
+}
+
+/* Keep form backgrounds light */
+.form-control {
+    background-color: var(--warm-white);
+    border: 1px solid #e0d5c5;
+    color: var(--text-black);
+}
+
+/* Footer text */
+.footer-heading {
+    color: var(--text-black) !important;
+}
+
+.list-unstyled li a {
+    color: var(--text-black);
+}
+
+/* Programs section */
+.block__35630 {
+    background-color: transparent; /* Remove background */
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.block__35630 h3 {
+    color: #e67e22 !important; /* Orange titles */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.block__35630 {
+    color: #666666; /* Softer text color for descriptions */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.block__35630:hover {
+    background-color: transparent;
+    transform: none;
+}
+
+/* Section title */
+#services-section .block-heading-1 h2 {
+    color: #e67e22; /* Orange section title */
+}
+
+/* Section subtitle */
+#services-section .block-heading-1 p {
+    color: #666666; /* Matching description color */
+}
+
+/* Pricing cards */
+.pricing {
+    background-color: var(--warm-darker);
+}
+
+.pricing h3 {
+    color: var(--text-black) !important;
+}
+
+.pricing .price span {
+    color: var(--text-black);
+}
+
+.pricing ul li {
+    color: var(--text-black);
+}
+
+/* Contact form */
+#contact-section {
+    background-color: var(--warm-bg);
+}
+
+.form-control::placeholder {
+    color: #888888;
+}
+
+/* Footer subscribe form */
+.footer-subscribe-form .form-control {
+    background-color: var(--warm-white) !important;
+    border: 1px solid #e0d5c5;
+    color: var(--text-black);
+}
+
+.footer-subscribe-form .form-control::placeholder {
+    color: #888888;
+}
+
+.footer-subscribe-form .input-group-append button {
+    background-color: var(--warm-white);
+    border: 1px solid #e0d5c5;
+    color: var(--text-black);
+}
+
+/* Quick Links in footer */
+.site-footer .list-unstyled li a {
+    color: var(--text-black);
+}
+
+/* Social media icons in footer */
+.site-footer .social a {
+    color: var(--text-black);
+}
+
+/* Remove any remaining white backgrounds */
+.block__35630:hover,
+.pricing:hover {
+    background-color: var(--warm-darker);
+}
+
+/* Ensure all text is visible */
+.site-footer .border-top {
+    border-top-color: #e0d5c5 !important;
+}
+
+.copyright {
+    color: var(--text-black);
+}
+
+/* Footer address and contact info */
+.site-footer p,
+.site-footer address,
+.site-footer .footer-heading + p {
+    color: var(--text-black) !important;
+}
+
+/* Copyright text */
+.site-footer .copyright,
+.site-footer .copyright small {
+    color: var(--text-black) !important;
+}
+
+/* Ensure all footer text is black */
+.site-footer * {
+    color: var(--text-black) !important;
+}
+
+/* Footer subscribe button */
+.footer-subscribe-form .btn-primary,
+.footer-subscribe-form #button-addon2 {
+    background-color: #e67e22 !important; /* Same orange as other buttons */
+    border-color: #e67e22 !important;
+    color: white !important;
+}
+
+/* Hover state */
+.footer-subscribe-form .btn-primary:hover,
+.footer-subscribe-form #button-addon2:hover {
+    background-color: #d35400 !important; /* Darker orange on hover */
+    border-color: #d35400 !important;
+}
+
+/* Mobile menu trigger color */
+.sticky-wrapper.is-sticky .site-menu-toggle span {
+    color: var(--text-black) !important;
+}
+
+/* Programs section background */
+#services-section {
+    background-color: var(--warm-bg);
+}
+
+
+.site-section:nth-child(even) {
+    background-color: var(--warm-bg);
+}
+
+/* Program cards hover effect */
+.block__35630:hover {
+    background-color: var(--warm-bg);
+}
+
+/* Make sure text remains visible */
+.block__35630 {
+    color: var(--text-black);
+}
+
+.block__35630 h3.text-white {
+    color: var(--text-black) !important;
+}
+
+#services-section .block-heading-1 {
+    margin-bottom: 3rem;
+}
+
+#services-section .container {
+    padding-top: 2rem;
+}
+
+#gallery-section {
+  background-color: var(--warm-bg);
+}
+
+/* Gallery section image sizing */
+#gallery-section .img-fluid {
+    width: 100%;    /* Make all images take full width of their container */
+    height: 400px;  /* Set a fixed height for all images */
+    object-fit: cover;  /* Ensure images cover the area without distortion */
+    object-position: center;  /* Center the image within the container */
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Add responsive height adjustments */
+@media (max-width: 800px) {
+    #gallery-section .img-fluid {
+        height: 350px;  /* Slightly smaller height on tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    #gallery-section .img-fluid {
+        height: 250px;  /* Even smaller height on mobile phones */
+    }
 }

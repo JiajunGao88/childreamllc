@@ -271,6 +271,84 @@ jQuery(document).ready(function($) {
 	}
 	counter();
 
+	// Programs accordion functionality
+	var programsAccordion = function() {
+		// Initialize all program headers as collapsed state
+		$('.program-header').addClass('collapsed');
+		
+		$('.program-header').on('click', function(e) {
+			e.preventDefault();
+			var $this = $(this);
+			var $card = $this.closest('.program-card');
+			var $content = $card.find('.collapse');
+			var $toggleIcon = $this.find('.toggle-icon');
+			
+			// Add click feedback
+			$this.addClass('clicked');
+			setTimeout(function() {
+				$this.removeClass('clicked');
+			}, 200);
+			
+			// Toggle the collapse
+			$content.collapse('toggle');
+			
+			// Update toggle icon with smooth animation
+			if ($content.hasClass('show')) {
+				$toggleIcon.fadeOut(150, function() {
+					$(this).text('−').fadeIn(150);
+				});
+				$this.removeClass('collapsed');
+			} else {
+				$toggleIcon.fadeOut(150, function() {
+					$(this).text('+').fadeIn(150);
+				});
+				$this.addClass('collapsed');
+			}
+		});
+		
+		// Handle Bootstrap collapse events
+		$('.collapse').on('show.bs.collapse', function() {
+			var $this = $(this);
+			var $header = $this.closest('.program-card').find('.program-header');
+			var $toggleIcon = $header.find('.toggle-icon');
+			
+			// Smooth icon transition
+			$toggleIcon.text('−');
+			$header.removeClass('collapsed');
+			
+			// Add entrance animation to content
+			$this.find('.program-section').each(function(index) {
+				var $section = $(this);
+				$section.css('opacity', '0').css('transform', 'translateY(20px)');
+				setTimeout(function() {
+					$section.css('transition', 'all 0.5s ease').css('opacity', '1').css('transform', 'translateY(0)');
+				}, index * 100);
+			});
+		});
+		
+		$('.collapse').on('hide.bs.collapse', function() {
+			var $this = $(this);
+			var $header = $this.closest('.program-card').find('.program-header');
+			var $toggleIcon = $header.find('.toggle-icon');
+			
+			// Smooth icon transition
+			$toggleIcon.text('+');
+			$header.addClass('collapsed');
+		});
+		
+		// Add hover effects for better UX
+		$('.program-card').hover(
+			function() {
+				$(this).addClass('hovered');
+			},
+			function() {
+				$(this).removeClass('hovered');
+			}
+		);
+	};
+	
+	// Initialize programs accordion
+	programsAccordion();
 
 
 });

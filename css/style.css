@@ -1624,3 +1624,376 @@ p {
         height: 250px;  /* Even smaller height on mobile phones */
     }
 }
+
+/* Programs Section - New Accordion Style */
+.program-card {
+  background-color: var(--warm-white);
+  border: 2px solid #e0d5c5;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.program-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.program-header {
+  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  color: white;
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.program-header:hover {
+  background: linear-gradient(135deg, #d35400 0%, #c0392b 100%);
+}
+
+.program-header.collapsed {
+  /* Default collapsed state styling */
+}
+
+.program-icon {
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.program-icon span {
+  font-size: 3rem;
+  color: white;
+  display: block;
+}
+
+.program-title {
+  flex-grow: 1;
+}
+
+.program-title h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.program-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+  color: white;
+}
+
+.program-toggle {
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+/* Default collapsed state - show plus icon */
+.program-header.collapsed .toggle-icon {
+  transform: rotate(0deg);
+}
+
+/* Expanded state - show minus icon */
+.program-header:not(.collapsed) .toggle-icon {
+  transform: rotate(0deg);
+}
+
+.program-content {
+  padding: 2rem;
+  background-color: var(--warm-white);
+  /* Ensure smooth collapse animation */
+  transition: all 0.35s ease;
+}
+
+.program-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #e67e22;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.program-section:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  color: #e67e22;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.program-section p {
+  color: var(--text-black);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Collapse animation improvements */
+.collapse {
+  transition: all 0.35s ease;
+}
+
+.collapsing {
+  transition: all 0.35s ease;
+}
+
+/* Ensure proper spacing between sections */
+.program-card + .program-card {
+  margin-top: 2rem;
+}
+
+/* Animation for content appearance when expanding */
+.program-content.show .row > div {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.program-content.show .row > div:nth-child(1) { animation-delay: 0.1s; }
+.program-content.show .row > div:nth-child(2) { animation-delay: 0.2s; }
+.program-content.show .row > div:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional program card refinements */
+.program-card {
+  margin-bottom: 2rem;
+}
+
+.program-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.program-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.program-header:hover::before {
+  left: 100%;
+}
+
+.program-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.program-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #e67e22 0%, #d35400 100%);
+  transition: width 0.3s ease;
+}
+
+.program-section:hover::before {
+  width: 8px;
+}
+
+/* Ensure proper text contrast */
+.program-section p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Improve mobile responsiveness */
+@media (max-width: 576px) {
+  .program-header {
+    padding: 1rem;
+  }
+  
+  .program-title h3 {
+    font-size: 1.3rem;
+  }
+  
+  .program-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .program-content {
+    padding: 1rem;
+  }
+  
+  .program-section {
+    padding: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+.program-card * {
+  transition: all 0.3s ease;
+}
+
+/* Focus states for accessibility */
+.program-header:focus {
+  outline: 2px solid #e67e22;
+  outline-offset: 2px;
+}
+
+.program-section:focus-within {
+  outline: 2px solid #e67e22;
+  outline-offset: 2px;
+}
+
+/* Enhanced interactive states */
+.program-header.clicked {
+  transform: scale(0.98);
+}
+
+.program-card.hovered {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Improved toggle icon animations */
+.toggle-icon {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.program-header.collapsed .toggle-icon {
+  transform: rotate(45deg);
+}
+
+/* Enhanced section animations */
+.program-section {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+.program-section.animate-in {
+  animation: slideInUp 0.6s ease forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth collapse transitions */
+.collapse {
+  transition: height 0.35s ease;
+}
+
+.collapsing {
+  transition: height 0.35s ease;
+}
+
+/* Enhanced focus and accessibility */
+.program-header:focus-visible {
+  outline: 3px solid #e67e22;
+  outline-offset: 3px;
+  border-radius: 15px;
+}
+
+.program-section:focus-within {
+  outline: 2px solid #e67e22;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Loading states for better UX */
+.program-card.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.program-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #e67e22;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .program-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .program-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .program-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .program-content {
+    padding: 1rem;
+  }
+  
+  .program-section {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Additional program card refinements */
+.program-card {
+  margin-bottom: 2rem;
+}

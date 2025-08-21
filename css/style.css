@@ -1997,3 +1997,77 @@ p {
 .program-card {
   margin-bottom: 2rem;
 }
+
+/* Gallery Scroll Styles */
+.gallery-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #e67e22 #e0d5c5;
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-track {
+  background: #e0d5c5;
+  border-radius: 4px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+  background: #e67e22;
+  border-radius: 4px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #d35400;
+}
+
+.gallery-row {
+  display: flex;
+  min-width: max-content;
+  gap: 1rem;
+}
+
+.gallery-row .col-md-4 {
+  flex: 0 0 auto;
+  width: calc(33.333% - 0.667rem);
+  min-width: 300px;
+}
+
+/* 确保在任何设备上都固定显示3张图片 */
+.gallery-scroll-container {
+  width: 100%;
+}
+
+.gallery-row .col-md-4:nth-child(1),
+.gallery-row .col-md-4:nth-child(2),
+.gallery-row .col-md-4:nth-child(3) {
+  flex: 0 0 calc(33.333% - 0.667rem);
+  width: calc(33.333% - 0.667rem);
+}
+
+.gallery-row .col-md-4:nth-child(4),
+.gallery-row .col-md-4:nth-child(5) {
+  flex: 0 0 calc(33.333% - 0.667rem);
+  width: calc(33.333% - 0.667rem);
+}
+
+/* Mobile responsive - 保持3列布局 */
+@media (max-width: 768px) {
+  .gallery-row .col-md-4 {
+    min-width: 250px;
+    flex: 0 0 calc(33.333% - 0.667rem);
+    width: calc(33.333% - 0.667rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-row .col-md-4 {
+    min-width: 200px;
+    flex: 0 0 calc(33.333% - 0.667rem);
+    width: calc(33.333% - 0.667rem);
+  }
+}

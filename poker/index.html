@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Poker Buy-In Tracker</title>
+
+  <!-- Fonts (Poker UI uses Oswald) -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+
+  <!-- Optional shared styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    html, body { height: 100%; }
+    body { margin: 0; }
+    #poker-root { min-height: 100vh; }
+  </style>
+</head>
+
+<body>
+  <div id="poker-root"></div>
+
+  <!--
+    This project is a static site.
+    We mount your existing React component from `poker-buyin-tracker.jsx`
+    using ESM.sh (it transpiles JSX in the browser environment).
+  -->
+  <script type="module">
+    // Provide the storage wrapper expected by poker-buyin-tracker.jsx.
+    // The component expects:
+    // - storage.set(key, jsonString)
+    // - storage.get(key) -> null OR { value: jsonString }
+    window.storage = {
+      set: async (key, value) => { localStorage.setItem(key, value); },
+      get: async (key) => {
+        const v = localStorage.getItem(key);
+        return v === null ? null : { value: v };
+      },
+    };
+
+    import * as ReactModule from "https://esm.sh/react@18";
+    import { createRoot } from "https://esm.sh/react-dom@18/client";
+    const React = ReactModule.default || ReactModule;
+
+    // Import the local JSX module through ESM.sh, so it can transpile JSX at runtime.
+    const pokerModuleUrl = new URL("../poker-buyin-tracker.jsx", window.location.href).toString();
+    const { default: PokerBuyInTracker } =
+      await import(`https://esm.sh/${pokerModuleUrl}`);
+
+    const rootEl = document.getElementById("poker-root");
+    const root = createRoot(rootEl);
+    root.render(React.createElement(PokerBuyInTracker));
+  </script>
+</body>
+</html>
+

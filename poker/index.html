@@ -46,7 +46,9 @@
     // Import the local JSX module through ESM.sh, so it can transpile JSX at runtime.
     const pokerModuleUrl = new URL("../poker-buyin-tracker.jsx", window.location.href).toString();
     const { default: PokerBuyInTracker } =
-      await import(`https://esm.sh/${pokerModuleUrl}`);
+      await import(
+        `https://esm.sh/${encodeURIComponent(pokerModuleUrl)}?bundle&jsx=transform`
+      );
 
     const rootEl = document.getElementById("poker-root");
     const root = createRoot(rootEl);

@@ -1671,6 +1671,13 @@ p {
   display: block;
 }
 
+.program-icon-svg {
+  width: 48px;
+  height: 48px;
+  fill: #ffffff;
+  display: block;
+}
+
 .program-title {
   flex-grow: 1;
 }
@@ -1740,6 +1747,14 @@ p {
   margin-bottom: 1rem;
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 0.5rem;
+}
+
+.section-icon {
+  width: 20px;
+  height: 20px;
+  fill: #e67e22;
+  margin-right: 0.45rem;
+  vertical-align: -3px;
 }
 
 .program-section p {
